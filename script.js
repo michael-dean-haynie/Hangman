@@ -19,19 +19,25 @@ function ArrayToDivCreation(array) {
   for(const indexContent of array) {
    
     const newDiv = document.createElement("div");
+    let dummyContent = "O";
    
     
-    newDiv.className = "letterBlock";
+    newDiv.className = "inputBlock";
     if(indexContent === " " || indexContent === "-"){
     newDiv.style.borderBottom = "none";
-    console.log(indexContent);
+    
     }
    
     if(indexContent === "-") {
     const newContent = document.createTextNode(indexContent);
     newDiv.appendChild(newContent);
-    newDiv.style.paddingBottom='10px';
     }
+    if(indexContent !== "-" && indexContent !== " ") {
+     const createDummyContent = document.createTextNode(dummyContent) ;
+     newDiv.appendChild(createDummyContent);
+     newDiv.className += " letterBlock";
+    }
+
     const currentDiv = document.getElementById("letters");
     currentDiv.appendChild(newDiv);
     document.getElementById('button').removeEventListener('click', stringToArrayHandler);
