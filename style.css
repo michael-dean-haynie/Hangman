@@ -24,3 +24,10 @@
   margin: 3px;
   text-align: center;
 }
+
+.wrapper {
+  width: 210px;
+  border: 1px solid;
+  display: grid;
+  grid-template-columns: 30px 30px 30px 30px 30px 30px 30px;
+}
