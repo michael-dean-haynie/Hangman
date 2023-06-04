@@ -1,3 +1,7 @@
+div {
+  border: 1px solid red;
+}
+
 .inputBlock {
   display: inline-block;
   width: 20px;
@@ -30,4 +34,33 @@
   border: 1px solid;
   display: grid;
   grid-template-columns: 30px 30px 30px 30px 30px 30px 30px;
+}
+
+.mainWrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+}
+
+.title {
+  text-align: center;
+}
+
+.image {
+  height: 200px;
+}
+
+.comment {
+  width: 25%;
+}
+
+.title,
+.mainWrapper,
+.inputOrOutput {
+  width: 50%;
+  margin: auto;
+}
+
+.inputOrOutput {
 }
