@@ -10,6 +10,7 @@ div {
   text-align: center;
   margin: 3px;
   padding-top: 15px;
+  text-transform: capitalize;
 }
 
 .letterBlock {
@@ -17,8 +18,9 @@ div {
   font-size: 0;
 }
 
-.space {
-  border-bottom: none;
+.hyphen {
+  font-size: 4em;
+  color: blue;
 }
 
 .alphabet {
@@ -52,7 +54,6 @@ div {
 }
 
 .comment {
-  width: 25%;
 }
 
 .title,
@@ -63,4 +64,9 @@ div {
 }
 
 .inputOrOutput {
+}
+
+.phrase {
+  width: 50%;
+  height: 30px;
 }
