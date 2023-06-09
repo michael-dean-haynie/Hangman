@@ -10,6 +10,7 @@ let imageArray = ["images/hangman1.jpg", "images/hangman2.jpg",
 "images/hangman3.jpg", "images/hangman4.jpg", "images/hangman5.jpg", "images/hangman6.jpg", "images/hangman7.jpg", "images/hangman8.jpg", "images/hangman9.jpg", "images/hangman10.jpg", "images/hangman11.jpg", "images/hangman12.jpg", "images/hangman13.jpg"]
 
 let accessImage = imageArray[0];
+let currentImageNumber = 1;
 
 
 function stringToArrayHandler(event) {
@@ -38,7 +39,7 @@ function ArrayToDivCreation(array) {
     if(indexContent === "-") {
     const newContent = document.createTextNode(indexContent);
     newDiv.appendChild(newContent);
-    newContent.className += " hyphen";
+    
     }
 
     if(indexContent !== "-" && indexContent !== " ") {
@@ -93,9 +94,14 @@ document.getElementById('Z').addEventListener('click', chooseLetterHandler);
    console.log(lookForInArray);
    let comment = document.getElementById('comment');
    comment.innerHTML="Sorry, there is no " + lookForInArray + " in our phrase.";
+   
+   let success = false;
 
+   
    for (let i=0; i < letterArray.length; i++) {
-    
+
+
+
     if (letterArray[i] === lookForInArray) {
       //let selector = "#letters :nth-child(" + (i+1) + ")";
 
@@ -103,11 +109,16 @@ document.getElementById('Z').addEventListener('click', chooseLetterHandler);
       elem.innerHTML=lookForInArray;
       comment.innerHTML="Hooray! We found the letter " + lookForInArray + " in our phrase.";
       elem.classList.remove("letterBlock");
+      success = true;
+      
     }
     
-
    }
-   
+   //if letter not found update image
+   if(success===false) {
+    currentImageNumber = currentImageNumber +1;
+    document.getElementById('img').src="images/hangman" + currentImageNumber + ".jpg";
+  }
    chosenLetter.removeEventListener('click', chooseLetterHandler);
    
    

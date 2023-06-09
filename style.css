@@ -11,6 +11,8 @@ div {
   margin: 3px;
   padding-top: 15px;
   text-transform: capitalize;
+  position: absolute;
+  bottom: 0;
 }
 
 .letterBlock {
