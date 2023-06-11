@@ -1,5 +1,6 @@
 /*https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout*/
-
+let newGameButton = document.getElementById('newGameButton');
+newGameButton.style.display = 'none';
 /*Choose Word*/
 document.getElementById('submitPhraseButton').addEventListener('click', stringToArrayHandler);
 let letterArray = [];
@@ -12,6 +13,7 @@ let regex = /[a-zA-Z]/g;
 let slotsToFill = 0;
 
 let filledSlots = 0;
+
 
 function stringToArrayHandler(event) {
 
@@ -117,6 +119,7 @@ document.getElementById('Z').addEventListener('click', chooseLetterHandler);
       console.log(filledSlots);
       if((slotsToFill === filledSlots) && (currentImageNumber < 13)) {
         console.log("You win");
+        winLose('win');
       }
     }
    }
@@ -124,6 +127,7 @@ document.getElementById('Z').addEventListener('click', chooseLetterHandler);
   if((slotsToFill > filledSlots) && (currentImageNumber >= 12)) {
     success = false;
     console.log("You lose");
+    winLose('lose');
   }
 
    //if letter not found update image
@@ -137,9 +141,13 @@ document.getElementById('Z').addEventListener('click', chooseLetterHandler);
   }
 
   function winLose(outcome) {
-    //create new Game button
-
+    //make new game button visible
     //assign it an click event listener
+    newGameButton.style.display = 'block';
+    newGameButton.addEventListener('click', () => {
+      newGame();
+    })
+    
     //create a winLose div that will hold the winner or loser info
     //give dif an id and a basic style class
     //make div blink
@@ -154,6 +162,10 @@ document.getElementById('Z').addEventListener('click', chooseLetterHandler);
 
 
 
+  }
+
+  function newGame () {
+    console.log("New Game");
   }
 
  
