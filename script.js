@@ -147,9 +147,19 @@ document.getElementById('Z').addEventListener('click', chooseLetterHandler);
     newGameButton.addEventListener('click', () => {
       newGame();
     })
+
+    let winLoseDiv = document.getElementById('winLoseDiv');
+    winLoseDiv
+    if(outcome === 'win') {
+      winLoseDiv.innerHTML = "You Win!";
+      winLoseDiv.classList.add('win');
+    }else if(outcome === 'lose') {
+      winLoseDiv.innerHTML = "You Lose!";
+      winLoseDiv.classList.add('lose');
+    }
     
-    //create a winLose div that will hold the winner or loser info
-    //give dif an id and a basic style class
+    
+    
     //make div blink
     //create the if win if lose scenarios
     //if win assign winLose div an additional win class for styling

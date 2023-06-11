@@ -87,8 +87,28 @@ div {
   width: 200px;
   height: 100px;
   text-align: center;
-  padding: 5px;
+  padding: 20px 5px;
   margin-top: 20px;
+  border-radius: 10px;
+}
+
+.win {
+  background: pink;
+  animation: blinker 1s linear infinite;
+  font-size: 2em;
+  align-items: center;
+  color: white;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.lose {
+  background: 'grey';
+  color: white;
 }
 
 .title,
