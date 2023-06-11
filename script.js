@@ -21,7 +21,9 @@ function stringToArrayHandler(event) {
   letterArray = string.split("");
   console.log(letterArray);
   console.log(letterArray[3]);
-
+  // make text box and button hidden once 'Submit Phrase' button has been clicked
+  document.getElementById('phrase').style.display = 'none';
+  document.getElementById('submitPhraseButton').style.display = 'none';
 
   ArrayToDivCreation(letterArray);
 }
@@ -132,6 +134,26 @@ document.getElementById('Z').addEventListener('click', chooseLetterHandler);
    chosenLetter.removeEventListener('click', chooseLetterHandler);
    
    
+  }
+
+  function winLose(outcome) {
+    //create new Game button
+
+    //assign it an click event listener
+    //create a winLose div that will hold the winner or loser info
+    //give dif an id and a basic style class
+    //make div blink
+    //create the if win if lose scenarios
+    //if win assign winLose div an additional win class for styling
+    //if win change innerHTML to "You Win!"
+    //if win create background and border in css win class
+    //if lose assign winLose div an additional win class for styling
+    //if lose change innerHTML to "You Win!"
+    //if lose create background and border in css win class
+
+
+
+
   }
 
  
