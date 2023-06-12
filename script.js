@@ -14,8 +14,39 @@ let slotsToFill = 0;
 
 let filledSlots = 0;
 
+// const A = document.getElementById('A');
+// const B = document.getElementById('B');
+// const C = document.getElementById('C');
+// const D = document.getElementById('D');
+// const E = document.getElementById('E');
+// const F = document.getElementById('F');
+// const G = document.getElementById('G');
+// const H = document.getElementById('H');
+// const I = document.getElementById('I');
+// const J = document.getElementById('J');
+// const K = document.getElementById('K');
+// const L = document.getElementById('L');
+// const M = document.getElementById('M');
+// const N = document.getElementById('N');
+// const O = document.getElementById('O');
+// const P = document.getElementById('P');
+// const Q = document.getElementById('Q');
+// const R = document.getElementById('R');
+// const S = document.getElementById('S');
+// const T = document.getElementById('T');
+// const U = document.getElementById('U');
+// const V = document.getElementById('V');
+// const W = document.getElementById('W');
+// const X = document.getElementById('X');
+// const Y = document.getElementById('Y');
+// const Z = document.getElementById('Z');
+let letterBlockArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+
+
 
 function stringToArrayHandler(event) {
+//letters become clickable
+  addLetterBlockEventListeners();
 
   let string = document.getElementById('phrase').value.toUpperCase();
   slotsToFill = string.match(regex).length;
@@ -29,7 +60,7 @@ function stringToArrayHandler(event) {
 
   ArrayToDivCreation(letterArray);
 }
-
+const currentDiv = document.getElementById("letters");
 function ArrayToDivCreation(array) {
   for(const indexContent of array) {
    
@@ -55,42 +86,16 @@ function ArrayToDivCreation(array) {
      newDiv.className += " letterBlock";
     }
 
-    const currentDiv = document.getElementById("letters");
+    
     currentDiv.appendChild(newDiv);
     
 
   }
-  document.getElementById('submitPhraseButton').removeEventListener('click', stringToArrayHandler);
+  document.getElementById('submitPhraseButton').removeEventListener('click', chooseLetterHandler);
 }
 
-/*Choose Letter*/
 
-document.getElementById('A').addEventListener('click', chooseLetterHandler);
-document.getElementById('B').addEventListener('click', chooseLetterHandler);
-document.getElementById('C').addEventListener('click', chooseLetterHandler);
-document.getElementById('D').addEventListener('click', chooseLetterHandler);
-document.getElementById('E').addEventListener('click', chooseLetterHandler);
-document.getElementById('F').addEventListener('click', chooseLetterHandler);
-document.getElementById('G').addEventListener('click', chooseLetterHandler);
-document.getElementById('H').addEventListener('click', chooseLetterHandler);
-document.getElementById('I').addEventListener('click', chooseLetterHandler);
-document.getElementById('J').addEventListener('click', chooseLetterHandler);
-document.getElementById('K').addEventListener('click', chooseLetterHandler);
-document.getElementById('L').addEventListener('click', chooseLetterHandler);
-document.getElementById('M').addEventListener('click', chooseLetterHandler);
-document.getElementById('N').addEventListener('click', chooseLetterHandler);
-document.getElementById('O').addEventListener('click', chooseLetterHandler);
-document.getElementById('P').addEventListener('click', chooseLetterHandler);
-document.getElementById('Q').addEventListener('click', chooseLetterHandler);
-document.getElementById('R').addEventListener('click', chooseLetterHandler);
-document.getElementById('S').addEventListener('click', chooseLetterHandler);
-document.getElementById('T').addEventListener('click', chooseLetterHandler);
-document.getElementById('U').addEventListener('click', chooseLetterHandler);
-document.getElementById('V').addEventListener('click', chooseLetterHandler);
-document.getElementById('W').addEventListener('click', chooseLetterHandler);
-document.getElementById('X').addEventListener('click', chooseLetterHandler);
-document.getElementById('Y').addEventListener('click', chooseLetterHandler);
-document.getElementById('Z').addEventListener('click', chooseLetterHandler);
+
 
 
  function chooseLetterHandler(event) {
@@ -141,6 +146,8 @@ document.getElementById('Z').addEventListener('click', chooseLetterHandler);
   }
 
   function winLose(outcome) {
+    //letter buttons no longer clickable
+    removeLetterBlockEventListeners();
     //make new game button visible
     //assign it an click event listener
     newGameButton.style.display = 'block';
@@ -149,7 +156,7 @@ document.getElementById('Z').addEventListener('click', chooseLetterHandler);
     })
 
     let winLoseDiv = document.getElementById('winLoseDiv');
-    winLoseDiv
+   //create the if win if lose scenarios
     if(outcome === 'win') {
       winLoseDiv.innerHTML = "You Win!";
       winLoseDiv.classList.add('win');
@@ -157,25 +164,29 @@ document.getElementById('Z').addEventListener('click', chooseLetterHandler);
       winLoseDiv.innerHTML = "You Lose!";
       winLoseDiv.classList.add('lose');
     }
-    
-    
-    
-    //make div blink
-    //create the if win if lose scenarios
-    //if win assign winLose div an additional win class for styling
-    //if win change innerHTML to "You Win!"
-    //if win create background and border in css win class
-    //if lose assign winLose div an additional win class for styling
-    //if lose change innerHTML to "You Win!"
-    //if lose create background and border in css win class
-
-
-
 
   }
 
   function newGame () {
-    console.log("New Game");
+  location.reload();
+  console.log("New Game");
+  }
+    
+    
+ 
+
+  function addLetterBlockEventListeners() {
+    letterBlockArray.forEach((item) =>{
+      document.getElementById(item).addEventListener('click', chooseLetterHandler);
+    });
+    return
+  }
+    
+    function removeLetterBlockEventListeners() {
+      letterBlockArray.forEach((item) =>{
+      document.getElementById(item).removeEventListener('click', chooseLetterHandler);
+    });
+    return
   }
 
  

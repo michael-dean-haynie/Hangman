@@ -107,7 +107,11 @@ div {
 }
 
 .lose {
-  background: 'grey';
+  background: blue;
+  color: white;
+  animation: blinker 1s linear infinite;
+  font-size: 2em;
+  align-items: center;
   color: white;
 }
 
