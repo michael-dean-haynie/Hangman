@@ -1,6 +1,12 @@
 /*https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout*/
+
 let newGameButton = document.getElementById('newGameButton');
 newGameButton.style.display = 'none';
+
+let winLoseDiv = document.getElementById('winLoseDiv');
+winLoseDiv.style.display = 'none';
+
+
 /*Choose Word*/
 document.getElementById('submitPhraseButton').addEventListener('click', stringToArrayHandler);
 let letterArray = [];
@@ -14,32 +20,7 @@ let slotsToFill = 0;
 
 let filledSlots = 0;
 
-// const A = document.getElementById('A');
-// const B = document.getElementById('B');
-// const C = document.getElementById('C');
-// const D = document.getElementById('D');
-// const E = document.getElementById('E');
-// const F = document.getElementById('F');
-// const G = document.getElementById('G');
-// const H = document.getElementById('H');
-// const I = document.getElementById('I');
-// const J = document.getElementById('J');
-// const K = document.getElementById('K');
-// const L = document.getElementById('L');
-// const M = document.getElementById('M');
-// const N = document.getElementById('N');
-// const O = document.getElementById('O');
-// const P = document.getElementById('P');
-// const Q = document.getElementById('Q');
-// const R = document.getElementById('R');
-// const S = document.getElementById('S');
-// const T = document.getElementById('T');
-// const U = document.getElementById('U');
-// const V = document.getElementById('V');
-// const W = document.getElementById('W');
-// const X = document.getElementById('X');
-// const Y = document.getElementById('Y');
-// const Z = document.getElementById('Z');
+
 let letterBlockArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
 
@@ -67,17 +48,14 @@ function ArrayToDivCreation(array) {
     const newDiv = document.createElement("div");
     let dummyContent = "O";
    
-    
     newDiv.className = "inputBlock";
     if(indexContent === " " || indexContent === "-"){
     newDiv.style.borderBottom = "none";
-    
     }
    
     if(indexContent === "-") {
     const newContent = document.createTextNode(indexContent);
     newDiv.appendChild(newContent);
-    
     }
 
     if(indexContent !== "-" && indexContent !== " ") {
@@ -86,7 +64,6 @@ function ArrayToDivCreation(array) {
      newDiv.className += " letterBlock";
     }
 
-    
     currentDiv.appendChild(newDiv);
     
 
@@ -150,12 +127,13 @@ function ArrayToDivCreation(array) {
     removeLetterBlockEventListeners();
     //make new game button visible
     //assign it an click event listener
+    winLoseDiv.style.display = 'block';
     newGameButton.style.display = 'block';
     newGameButton.addEventListener('click', () => {
       newGame();
     })
 
-    let winLoseDiv = document.getElementById('winLoseDiv');
+    
    //create the if win if lose scenarios
     if(outcome === 'win') {
       winLoseDiv.innerHTML = "You Win!";
