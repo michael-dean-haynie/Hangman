@@ -1,0 +1,188 @@
+:root {
+  --blue: #739fd0;
+  --oldButtonColor: #8d8741;
+  --letterBox-color: #fbeec1;
+  --letterBoxFade-color: #bc986a;
+
+  --whiteText: white;
+  --textSizeStd: 1em;
+  --textSizeLg: 4em;
+  --textSizeSm: 0.5em;
+
+  /*triad*/
+  --backgroundColor: #b8c7d9;
+  --lightBackgroundColor: #d6e9fc;
+  --textColor: black;
+  --winAccentColor: #d18e88;
+  --accentColor: #c0d15e;
+  --loseAccentColor: #C0D15E;
+  --buttonColor: #d18e88;
+  --imageColor: #739fd0;
+}
+
+/*Let's make sure that the dimentions of any box includes its border and padding*/
+* {
+  box-sizing: border-box;
+}
+
+/* div {
+  border: 1px solid red;
+} */
+
+#container2 {
+  background-color: var(--backgroundColor);
+  margin: 10px;
+}
+
+.inputBlock {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-bottom: 2px solid black;
+  text-align: center;
+  margin: 3px;
+  padding-top: 15px;
+  text-transform: capitalize;
+  
+}
+
+input {
+  background: var(--whiteText);
+  color: black;
+}
+
+.letterBlock {
+  color: var(--backgroundColor);
+  width:40px;
+  height:40px;
+  
+  font-size: 1em;
+}
+
+.hyphen {
+  font-size: 4em;
+  color: blue;
+}
+
+.alphabet {
+  border: 1px solid black;
+  width: 20px;
+  height: 20px;
+  margin: 3px;
+  text-align: center;
+  background-color: var(--whiteText);
+  color: var(--textColor);
+}
+
+.wrapper {
+  width: 210px;
+  height: 125px;
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 30px 30px 30px 30px 30px 30px 30px;
+  background-color: var(--imageColor);
+}
+
+.contents {
+  width: 210px;
+}
+
+#newGameDiv {
+  padding: 10%;
+  margin: auto;
+  text-align: center;
+}
+
+.newGameButton {
+  padding: 5px 10px;
+  margin: auto;
+  background-color: var(--buttonColor);
+  border-radius: 5px;
+  border: 2px solid #bc986a;
+}
+
+.title,
+.mainWrapper,
+.inputOrOutput {
+  display: flex;
+  margin: 25px;
+  padding-bottom: 25px;
+  justify-content: center;
+  align-items: space-between;
+  flex-wrap: wrap;
+}
+
+.mainWrapper > div {
+  margin: 10px;
+}
+
+.image {
+  border: 1px solid black;
+  display: flex;
+  align-content: center;
+}
+
+.comment {
+  width: ;
+  height: ;
+  padding: 5px;
+  border: 1px solid #8d8741;
+  text-align: center;
+  border-radius: 10px;
+  background-color: grey;
+  color: var(--whiteText);
+}
+
+.winLoseDiv {
+  text-align: center;
+  padding: 20px 5px;
+  margin-top: 20px;
+  border: 1px solid #8d8741;
+  border-radius: 10px;
+  background-color: var(--accentColor);
+  color: var(--textColor);
+}
+
+.win {
+  background: var(--winAccentColor);
+  animation: blinker 1s linear infinite;
+  font-size: 2em;
+  align-items: center;
+  color: var(--whiteText);
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.lose {
+  background: var(--loseAccentColor);
+  color: var(--textWhite);
+  animation: blinker 1s linear infinite;
+  font-size: 2em;
+  align-items: center;
+}
+
+#result {
+  display: grid
+  align-items: center;
+  align-content: flex-start;
+  width: 200px;
+}
+
+.phrase {
+  height: 30px;
+  -webkit-text-security: disc;
+  font-size: 1.25em;
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
+  margin-right: 10px;
+}
+
+#submitPhraseButton {
+  border-radius: 5px;
+  background-color: var(--buttonColor);
+  border: 1px solid #8d8741;
+}
